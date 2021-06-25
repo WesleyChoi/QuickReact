@@ -6,11 +6,24 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="194dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="76dp"
+        android:fontFamily="monospace"
+        android:text="QUICKREACT"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/nav_compass"
         android:layout_width="221dp"
         android:layout_height="93dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="208dp"
         android:fontFamily="monospace"
         android:text="COMPASS DRILL"
         android:textSize="24sp"
@@ -29,4 +42,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="156dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="monospace"
+        android:text="© WesleyChoi 2021"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
