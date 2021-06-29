@@ -13,16 +13,16 @@
             android:name=".CompassAgilitySelector"
             android:label="@string/title_activity_compass_agility_selector"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".LaunchDrillSelector"
-            android:label="@string/title_activity_launch_drill_selector"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--        <activity-->
+<!--            android:name=".LaunchDrillSelector"-->
+<!--            android:label="@string/title_activity_launch_drill_selector"-->
+<!--            android:theme="@style/AppTheme.NoActionBar">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
