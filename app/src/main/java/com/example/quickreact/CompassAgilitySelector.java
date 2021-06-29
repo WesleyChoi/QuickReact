@@ -15,6 +15,7 @@ import android.widget.Button;
 public class CompassAgilitySelector extends AppCompatActivity {
 
     private Button nav_back_to_main;
+    private Button nav_compass_to_execute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class CompassAgilitySelector extends AppCompatActivity {
         setContentView(R.layout.compass_agility_selector);
 
 
+        // NAV: return to MainActivity (drill selector)
         nav_back_to_main = (Button) findViewById(R.id.nav_back_main);
         nav_back_to_main.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,18 +32,27 @@ public class CompassAgilitySelector extends AppCompatActivity {
             }
         });
 
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
+        // NAV: opens CompassAgilityExecute
+        nav_compass_to_execute = (Button) findViewById(R.id.nav_compass_start_execute);
+        nav_compass_to_execute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExecuteCompassDrill();
+            }
+        });
+
     }
 
+    // executes intent instantiation
     public void returnToDrillSelector() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    // passes to compass agility screen
+    public void ExecuteCompassDrill() {
+        Intent intent = new Intent(this, CompassAgilityExecute.class);
         startActivity(intent);
     }
 
