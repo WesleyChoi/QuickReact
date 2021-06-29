@@ -10,7 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".launch_drill_selector"
+            android:name=".CompassAgilitySelector"
+            android:label="@string/title_activity_compass_agility_selector"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LaunchDrillSelector"
             android:label="@string/title_activity_launch_drill_selector"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
