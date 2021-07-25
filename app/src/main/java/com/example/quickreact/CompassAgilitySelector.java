@@ -20,8 +20,8 @@ public class CompassAgilitySelector extends AppCompatActivity {
 
     private String[] number_picker_vals;
 
-    private NumberPicker number_picker_total_time;
-    private NumberPicker number_picker_prompt_frequency;
+    public NumberPicker number_picker_total_time;
+    public NumberPicker number_picker_prompt_frequency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
