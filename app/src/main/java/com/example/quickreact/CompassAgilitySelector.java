@@ -24,6 +24,7 @@ public class CompassAgilitySelector extends AppCompatActivity {
     public NumberPicker number_picker_prompt_frequency;
 
     public static int int_total_time;
+    public static int frequency_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class CompassAgilitySelector extends AppCompatActivity {
         number_picker_vals = new String[] {"10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75"};
         number_picker_total_time.setDisplayedValues(number_picker_vals);
 
-        // get total set time from selector screen
+        // set public static var int_total_time to value in picker
         number_picker_total_time.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int oldVal, int newVal) {
@@ -74,6 +75,16 @@ public class CompassAgilitySelector extends AppCompatActivity {
         number_picker_prompt_frequency = findViewById(R.id.prompt_frequency_picker);
         number_picker_prompt_frequency.setMinValue(1);
         number_picker_prompt_frequency.setMaxValue(15);
+
+
+        // set public static var int_total_time to value in picker
+        number_picker_prompt_frequency.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int oldVal, int newVal) {
+                frequency_time = newVal;
+            }
+        });
+
     }
 
     // executes intent instantiation

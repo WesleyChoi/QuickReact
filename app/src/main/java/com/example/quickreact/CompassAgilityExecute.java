@@ -34,13 +34,16 @@ public class CompassAgilityExecute extends AppCompatActivity {
             }
         });
 
-        // retrieve value obtained from total set time
+        // retrieve value obtained from total set time from selector screen
         TextView test_display_int = findViewById(R.id.total_time_display_indicator);
         int convert_int_total_time = (CompassAgilitySelector.int_total_time * 5) + 10;
-        test_display_int.setText(String.valueOf(convert_int_total_time));
+        test_display_int.setText("" + String.valueOf(convert_int_total_time));
 
-        //get prompt frequency from selector screen
 
+        //retrieve prompt frequency from selector screen
+        TextView test_display_frequency = findViewById(R.id.frequency_display_indicator);
+        int convert_frequency_time = CompassAgilitySelector.frequency_time + 1;
+        test_display_frequency.setText("" + String.valueOf(convert_frequency_time));
 
 
 
