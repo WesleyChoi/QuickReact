@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 public class CompassAgilityExecute extends AppCompatActivity {
 
@@ -25,27 +26,23 @@ public class CompassAgilityExecute extends AppCompatActivity {
         setContentView(R.layout.activity_compass_agility_execute);
 
         // NAV: return to MainActivity (drill selector)
-//        nav_back_to_agility_selector = (Button) findViewById(R.id.nav_back_agility_selector);
-//        nav_back_to_agility_selector.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                returnToCompassAgilitySelector();
-//            }
-//        });
-//
-//
-//        // get total set time from selector screen
-//        number_picker_total_time_reader = findViewById(R.id.set_time_picker);
-//        number_picker_total_time_reader.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-//            @Override
-//            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-////                int value_picker_total_time = (number_picker_total_time_reader.getValue() + 1) * 5;
-//                int value_picker_total_time = number_picker_total_time_reader.getValue();
-//                Log.d("picker value", String.valueOf(value_picker_total_time));
-//            }
-//        });
+        nav_back_to_agility_selector = (Button) findViewById(R.id.nav_back_agility_selector);
+        nav_back_to_agility_selector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                returnToCompassAgilitySelector();
+            }
+        });
+
+        // retrieve value obtained from total set time
+        TextView test_display_int = findViewById(R.id.total_time_display_indicator);
+        int convert_int_total_time = (CompassAgilitySelector.int_total_time * 5) + 10;
+        test_display_int.setText(String.valueOf(convert_int_total_time));
 
         //get prompt frequency from selector screen
+
+
+
 
 
     }

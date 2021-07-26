@@ -23,6 +23,8 @@ public class CompassAgilitySelector extends AppCompatActivity {
     public NumberPicker number_picker_total_time;
     public NumberPicker number_picker_prompt_frequency;
 
+    public static int int_total_time;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,19 @@ public class CompassAgilitySelector extends AppCompatActivity {
         number_picker_total_time.setMaxValue(13);
         number_picker_vals = new String[] {"10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75"};
         number_picker_total_time.setDisplayedValues(number_picker_vals);
+
+        // get total set time from selector screen
+        number_picker_total_time.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int oldVal, int newVal) {
+//                int value_picker_total_time = (number_picker_total_time_reader.getValue() + 1) * 5;
+//                int value_picker_total_time = number_picker_total_time_reader.getValue();
+//                Log.d("picker value", String.valueOf(value_picker_total_time));
+                int_total_time = newVal;
+
+            }
+        });
+
 
         // set min and max values for prompt_frequency
         number_picker_prompt_frequency = findViewById(R.id.prompt_frequency_picker);
