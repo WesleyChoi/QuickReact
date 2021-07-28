@@ -25,6 +25,8 @@ public class CompassAgilityExecute extends AppCompatActivity {
     private int int_total_time;
     private int int_prompt_frequency;
 
+
+
     private MediaPlayer play_up = new MediaPlayer();
     private MediaPlayer play_down = new MediaPlayer();
     private MediaPlayer play_left = new MediaPlayer();
@@ -57,22 +59,22 @@ public class CompassAgilityExecute extends AppCompatActivity {
 
         // set data source locations for each audio asset
         try {
-            play_up.setDataSource("../../../../../main/assets/up.mp3");
-            play_down.setDataSource("../../../../../main/assets/down.mp3");
-            play_left.setDataSource("../../../../../main/assets/left.mp3");
-            play_right.setDataSource("../../../../../main/assets/right.mp3");
+            play_up.setDataSource("/app/src/main/assets/up.mp3");
+            play_down.setDataSource("/app/src/main/assets/down.mp3");
+            play_left.setDataSource("/app/src/main/assets/left.mp3");
+            play_right.setDataSource("/app/src/main/assets/right.mp3");
 
             play_up.prepare();
             play_down.prepare();
             play_left.prepare();
             play_right.prepare();
 
-            play_up.start();
+//            play_up.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        executeCompassDrill();
+//        executeCompassDrill();
 
 
     }
@@ -83,7 +85,7 @@ public class CompassAgilityExecute extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+/*
     public void executeCompassDrill() {
 
         int curr_time = 0;
@@ -122,8 +124,10 @@ public class CompassAgilityExecute extends AppCompatActivity {
                 Thread.currentThread().interrupt();
             }
         }
-
-
     }
+*/
+
+
+
 
 }
