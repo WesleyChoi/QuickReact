@@ -35,6 +35,8 @@ public class CompassAgilityExecute extends AppCompatActivity {
     private MediaPlayer play_left;
     private MediaPlayer play_right;
 
+    private Boolean exit_true = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +92,7 @@ public class CompassAgilityExecute extends AppCompatActivity {
 
 
     public void returnToCompassAgilitySelector() {
+        exit_true = true;
         Intent intent = new Intent(this, CompassAgilitySelector.class);
         startActivity(intent);
     }
@@ -197,7 +200,9 @@ public class CompassAgilityExecute extends AppCompatActivity {
                 public void onTick(long msUntilFinished) {}
 
                 public void onFinish() {
-                    executeCompassDrill();
+                    if (!exit_true) {
+                        executeCompassDrill();
+                    }
                 }
 
             };
