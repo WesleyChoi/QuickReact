@@ -76,6 +76,16 @@ public class CompassAgilityExecute extends AppCompatActivity {
         };
         wait_timer.start();
 
+//        // button test to check if sound works
+//        Button test_sound_button = (Button) this.findViewById(R.id.test_sound_button);
+//
+//        test_sound_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                play_up.start();
+//            }
+//        });
+
     }
 
 
