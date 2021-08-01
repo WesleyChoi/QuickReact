@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ReactionSprintExecute"
+            android:label="@string/title_activity_reaction_sprint_execute"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".ReactionSprintSelector"
             android:label="@string/title_activity_reaction_sprint_selector"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CompassAgilityExecute" />
         <activity
             android:name=".CompassAgilitySelector"

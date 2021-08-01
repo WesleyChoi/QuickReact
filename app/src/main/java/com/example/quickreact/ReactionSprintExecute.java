@@ -20,16 +20,17 @@ import androidx.navigation.ui.NavigationUI;
 import java.util.Random;
 
 
-public class ReactionSprintSelector extends AppCompatActivity {
+public class ReactionSprintExecute extends AppCompatActivity {
 
     private Button nav_back_to_main;
-    private Button initialize_reaction_sprint_execute;
+
+    private MediaPlayer play_go;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reaction_sprint_selector);
+        setContentView(R.layout.reaction_sprint_execute);
 
         // NAV: return to MainActivity (drill selector)
         nav_back_to_main = (Button) findViewById(R.id.nav_back_main);
@@ -40,16 +41,11 @@ public class ReactionSprintSelector extends AppCompatActivity {
             }
         });
 
+        // initialize media player
+        initializeMediaPlayer();
 
-        // start reaction sprint
-        initialize_reaction_sprint_execute = (Button) findViewById(R.id.nav_compass_start_execute);
-        initialize_reaction_sprint_execute.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startReactionSprintDrill();
-            }
-        });
-
+        // play go sound
+        playGoSound();
     }
 
 
@@ -59,9 +55,32 @@ public class ReactionSprintSelector extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void startReactionSprintDrill() {
-        Intent intent = new Intent(this, ReactionSprintExecute.class);
-        startActivity(intent);
+    // initialize go sound
+    public void initializeMediaPlayer() {
+
+        // create new MediaPlayer with file location
+        play_go = MediaPlayer.create(this, R.raw.go);
+
+    }
+
+    // play go sound
+    public void playGoSound() {
+
+        Random random_selector = new Random();
+        int select_random_int = random_selector.nextInt(6) + 2;
+
+        // initial wait time until drill starts
+        CountDownTimer wait_timer = new CountDownTimer(select_random_int * 1000, 1000) {
+
+            public void onTick(long msUntilFinished) {}
+
+            public void onFinish() {
+                play_go.start();
+            }
+
+        };
+        wait_timer.start();
+
     }
 
 }
