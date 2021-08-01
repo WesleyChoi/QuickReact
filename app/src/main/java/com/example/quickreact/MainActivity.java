@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button nav_launch_to_compass;
+    private Button nav_launch_to_reaction_sprint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +24,24 @@ public class MainActivity extends AppCompatActivity {
                 openCompassDrill();
             }
         });
+
+
+        nav_launch_to_reaction_sprint = (Button) findViewById(R.id.nav_reaction_sprints);
+        nav_launch_to_reaction_sprint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openReactionSprintDrill();
+            }
+        });
     }
 
     public void openCompassDrill() {
         Intent intent = new Intent(this, CompassAgilitySelector.class);
+        startActivity(intent);
+    }
+
+    public void openReactionSprintDrill() {
+        Intent intent = new Intent(this, ReactionSprintSelector.class);
         startActivity(intent);
     }
 
