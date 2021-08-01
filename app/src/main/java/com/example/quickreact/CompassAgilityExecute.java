@@ -1,9 +1,11 @@
 package com.example.quickreact;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.Loader;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class CompassAgilityExecute extends AppCompatActivity {
 
     private Button nav_back_to_agility_selector;
-    private Button test_sound_button;
+//    private Button test_sound_button;
 
     private NumberPicker number_picker_total_time_reader;
     private NumberPicker number_picker_prompt_frequency_reader;
@@ -61,18 +63,27 @@ public class CompassAgilityExecute extends AppCompatActivity {
 
         initializeMediaPlayer();
 
-//        executeCompassDrill();
 
+        CountDownTimer wait_timer = new CountDownTimer(3 * 1000, 1000) {
 
-        // button test
-        Button test_sound_button = (Button) this.findViewById(R.id.test_sound_button);
+            public void onTick(long msUntilFinished) {}
 
-        test_sound_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                play_up.start();
+            public void onFinish() {
+                executeCompassDrill();
             }
-        });
+
+        };
+        wait_timer.start();
+
+//        // button test to check if sound works
+//        Button test_sound_button = (Button) this.findViewById(R.id.test_sound_button);
+//
+//        test_sound_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                play_up.start();
+//            }
+//        });
 
     }
 
@@ -149,41 +160,54 @@ public class CompassAgilityExecute extends AppCompatActivity {
     }
 */
 
-//    public void executeCompassDrill() {
+    public void executeCompassDrill() {
+
+        if (curr_time < int_total_time) {
+            Random random_selector = new Random();
+            int select_random_int = random_selector.nextInt(4);
+
+            // play corresponding sound based on number selected
+            if (select_random_int == 0) {
+                // play up
+                play_up.start();
+            } else if (select_random_int == 1) {
+                // play down
+                play_down.start();
+            } else if (select_random_int == 2) {
+                // play left
+                play_left.start();
+            } else {
+                // play right
+                play_right.start();
+            }
+
+            curr_time += int_prompt_frequency;
+
+            // wait until next cycle is ready
+//            try {
+////                TimeUnit.SECONDS.sleep(int_prompt_frequency);
+////                Thread.sleep(int_prompt_frequency * 1000);
 //
-//        if (curr_time < int_total_time) {
-//            Random random_selector = new Random();
-//            int select_random_int = random_selector.nextInt(4);
 //
-//            // play corresponding sound based on number selected
-//            if (select_random_int == 0) {
-//                // play up
-//                play_up.start();
-//            } else if (select_random_int == 1) {
-//                // play down
-//                play_down.start();
-//            } else if (select_random_int == 2) {
-//                // play left
-//                play_left.start();
-//            } else {
-//                // play right
-//                play_right.start();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
 //            }
-//        }
-//
-//        curr_time += int_prompt_frequency;
-//
-//        // wait until next cycle is ready
-//        try {
-////          TimeUnit.SECONDS.sleep(int_prompt_frequency);
-//            Thread.sleep(int_prompt_frequency * 1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//            Thread.currentThread().interrupt();
-//        }
-//
-//        executeCompassDrill();
-//    }
+            // https://stackoverflow.com/questions/31041884/execute-function-after-5-seconds-in-android
+
+            CountDownTimer freq_timer = new CountDownTimer(int_prompt_frequency * 1000, 1000) {
+
+                public void onTick(long msUntilFinished) {}
+
+                public void onFinish() {
+                    executeCompassDrill();
+                }
+
+            };
+            freq_timer.start();
+
+        }
+
+    }
 
 
 }
