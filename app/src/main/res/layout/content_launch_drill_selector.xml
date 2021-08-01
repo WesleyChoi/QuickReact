@@ -32,12 +32,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/nav_fastfeet"
+        android:id="@+id/nav_reaction_sprints"
         android:layout_width="221dp"
         android:layout_height="93dp"
         android:layout_marginTop="336dp"
         android:fontFamily="monospace"
-        android:text="FAST FEET"
+        android:text="REACTION SPRINTS"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
