@@ -21,7 +21,6 @@ import java.util.concurrent.TimeUnit;
 public class CompassAgilityExecute extends AppCompatActivity {
 
     private Button nav_back_to_agility_selector;
-//    private Button test_sound_button;
 
     private NumberPicker number_picker_total_time_reader;
     private NumberPicker number_picker_prompt_frequency_reader;
@@ -61,9 +60,11 @@ public class CompassAgilityExecute extends AppCompatActivity {
         int_prompt_frequency = CompassAgilitySelector.frequency_time + 1;
         test_display_frequency.setText("" + int_prompt_frequency);
 
+
+        // prepare all four sounds by setting data source
         initializeMediaPlayer();
 
-
+        // initial wait time until drill starts
         CountDownTimer wait_timer = new CountDownTimer(3 * 1000, 1000) {
 
             public void onTick(long msUntilFinished) {}
@@ -74,16 +75,6 @@ public class CompassAgilityExecute extends AppCompatActivity {
 
         };
         wait_timer.start();
-
-//        // button test to check if sound works
-//        Button test_sound_button = (Button) this.findViewById(R.id.test_sound_button);
-//
-//        test_sound_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                play_up.start();
-//            }
-//        });
 
     }
 
@@ -97,8 +88,6 @@ public class CompassAgilityExecute extends AppCompatActivity {
 
         //        // set data source locations for each audio asset
 //        try {
-//
-//
 ////            play_up.setDataSource("/app/src/main/assets/up.mp3");
 ////            play_down.setDataSource("/app/src/main/assets/down.mp3");
 ////            play_left.setDataSource("/app/src/main/assets/left.mp3");
@@ -107,13 +96,12 @@ public class CompassAgilityExecute extends AppCompatActivity {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+
+        // create new MediaPlayer with file location
         play_up = MediaPlayer.create(this, R.raw.up);
         play_down = MediaPlayer.create(this, R.raw.down);
         play_left = MediaPlayer.create(this, R.raw.left);
         play_right = MediaPlayer.create(this, R.raw.right);
-
-
-
 
     }
 
@@ -204,10 +192,6 @@ public class CompassAgilityExecute extends AppCompatActivity {
 
             };
             freq_timer.start();
-
         }
-
     }
-
-
 }
