@@ -1,12 +1,14 @@
 package com.example.quickreact;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,10 +17,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.Random;
+
 
 public class ReactionSprintSelector extends AppCompatActivity {
 
     private Button nav_back_to_main;
+
+    private MediaPlayer play_go;
 
 
     @Override
@@ -35,6 +41,11 @@ public class ReactionSprintSelector extends AppCompatActivity {
             }
         });
 
+        // initialize media player
+        initializeMediaPlayer();
+
+        // play go sound
+        playGoSound();
     }
 
 
@@ -42,6 +53,34 @@ public class ReactionSprintSelector extends AppCompatActivity {
     public void returnToDrillSelector() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    // initialize go sound
+    public void initializeMediaPlayer() {
+
+        // create new MediaPlayer with file location
+        play_go = MediaPlayer.create(this, R.raw.go);
+
+    }
+
+    // play go sound
+    public void playGoSound() {
+
+        Random random_selector = new Random();
+        int select_random_int = random_selector.nextInt(5) + 3;
+
+        // initial wait time until drill starts
+        CountDownTimer wait_timer = new CountDownTimer(select_random_int * 1000, 1000) {
+
+            public void onTick(long msUntilFinished) {}
+
+            public void onFinish() {
+                play_go.start();
+            }
+
+        };
+        wait_timer.start();
+
     }
 
 }

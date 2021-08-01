@@ -22,8 +22,8 @@ public class CompassAgilityExecute extends AppCompatActivity {
 
     private Button nav_back_to_agility_selector;
 
-    private NumberPicker number_picker_total_time_reader;
-    private NumberPicker number_picker_prompt_frequency_reader;
+//    private NumberPicker number_picker_total_time_reader;
+//    private NumberPicker number_picker_prompt_frequency_reader;
 
     private int int_total_time;
     private int int_prompt_frequency;
